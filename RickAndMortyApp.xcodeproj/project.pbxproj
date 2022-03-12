@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC04051027DD17660064A177 /* FavouriteHeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04050F27DD17660064A177 /* FavouriteHeroTableViewCell.swift */; };
 		BC09CFC527DCDEB700A09A8E /* CollectionViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09CFC427DCDEB700A09A8E /* CollectionViewControllerExtentions.swift */; };
 		BC09CFC727DCE0FC00A09A8E /* DetailViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC09CFC627DCE0FC00A09A8E /* DetailViewControllerExtentions.swift */; };
 		BC17D35527DA638A00578FFD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17D35427DA638A00578FFD /* DBManager.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC04050F27DD17660064A177 /* FavouriteHeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteHeroTableViewCell.swift; sourceTree = "<group>"; };
 		BC09CFC427DCDEB700A09A8E /* CollectionViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerExtentions.swift; sourceTree = "<group>"; };
 		BC09CFC627DCE0FC00A09A8E /* DetailViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerExtentions.swift; sourceTree = "<group>"; };
 		BC17D35427DA638A00578FFD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				BCD6BDD527D60B8D007DBE94 /* CollectionViewController.swift */,
 				BCD6BDD927D60FAD007DBE94 /* CollectionViewCell.swift */,
 				BC67CC0B27D937C9005012B6 /* DetailTableViewCell.swift */,
+				BC04050F27DD17660064A177 /* FavouriteHeroTableViewCell.swift */,
 				BCA785E127D75CD0003B59BE /* DetailViewController.swift */,
 				BCA785EE27D77018003B59BE /* EpisodeTableViewController.swift */,
 				BCA785F227D77996003B59BE /* LocationTableViewController.swift */,
@@ -291,6 +294,7 @@
 				BCD6BDDA27D60FAD007DBE94 /* CollectionViewCell.swift in Sources */,
 				BCD6BDD227D609D2007DBE94 /* NetworkingModel.swift in Sources */,
 				BCBB499527D5F9FB00D3DBF2 /* AppDelegate.swift in Sources */,
+				BC04051027DD17660064A177 /* FavouriteHeroTableViewCell.swift in Sources */,
 				BCA785E427D75D06003B59BE /* DetailModel.swift in Sources */,
 				BCD6BDD627D60B8D007DBE94 /* CollectionViewController.swift in Sources */,
 				BCD6BDE227D61EB3007DBE94 /* TabBarView.swift in Sources */,

@@ -11,10 +11,48 @@ class FavouriteHeroesTableViewController: UITableViewController {
     
     var controller: FavouriteHeroesController?
     var notificationToken: NotificationToken?
+    var identifier = "CellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         config()
+        notification()
+        self.tableView.register(FavouriteHeroTableViewCell.self, forCellReuseIdentifier: identifier)
+        
+    }
+    func config() {
+        self.navigationItem.title = "Favourite"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return controller?.getNumberOfRows() ?? 0
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FavouriteHeroTableViewCell
+        
+        cell?.data = controller?.getHeroes(for: indexPath.row)
+        return cell ?? UITableViewCell()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if  let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? FavouriteHeroTableViewCell {
+            cell.hideDetailView()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            self.tableView.performBatchUpdates(nil)
+        }
+    }
+    
+    
+    func notification() {
         self.notificationToken = controller?.model?.arrayOfHeroes.observe { (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
@@ -31,26 +69,5 @@ class FavouriteHeroesTableViewController: UITableViewController {
                 fatalError("\(err)")
             }
         }
-    }
-    func config() {
-        self.navigationItem.title = "Favourite"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller?.getNumberOfRows() ?? 0
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
-        cell.textLabel?.text = controller?.getHeroes(for: indexPath.row)?.name
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadData()
     }
 }

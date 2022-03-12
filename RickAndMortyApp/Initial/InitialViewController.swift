@@ -13,7 +13,11 @@ class InitialViewController: UIViewController {
     let button = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingEllements()
+//        settingEllements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        config()
     }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
        get {
@@ -38,6 +42,17 @@ class InitialViewController: UIViewController {
         view.backgroundColor = .white
         label.anchor(centerX: view.layoutMarginsGuide.centerXAnchor, centerY: view.layoutMarginsGuide.centerYAnchor)
         button.anchor(top: label.topAnchor, paddingTop: 30,centerX: view.layoutMarginsGuide.centerXAnchor, width: 200, height: 50)
+    }
+    
+    
+    func config() {
+        let view = TabBarView()
+        let model = TabBarModel()
+        let controller = TabBarController(view: view, model: model)
+        self.controller = controller
+        view.modalPresentationStyle = .overFullScreen
+        view.modalTransitionStyle = .flipHorizontal
+        present(view, animated: true, completion: nil)
     }
     
     @objc func buttonTapped(sender : UIButton) {
