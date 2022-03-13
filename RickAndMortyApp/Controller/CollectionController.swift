@@ -27,6 +27,36 @@ class CollectionController {
         getRickAndMortyData()
     }
     
+    func getNextPage(for number: Int) {
+        if let count = getNumberOfRows(), count>1{
+            let lastElement = count - 1
+            if number == lastElement {
+                getRickAndMortyData()
+            }
+        }
+    }
+    
+    func getLikeButtonStatus(for number: Int, sender: UIButton) {
+        let hero = createHero(for: number)
+        let count = getDataFromDB(hero: hero).count
+        
+        if count == 1 {
+            sender.isSelected = true
+        } else {
+            sender.isSelected = false
+        }
+    }
+    func likeButtonAction(for number: Int, sender: UIButton) {
+        let hero = createHero(for: number)
+        if sender.isSelected == true {
+            sender.isSelected = false
+            deleteObject(for: hero.id)
+        } else {
+            sender.isSelected = true
+            addDataToRealm(hero: hero)
+        }
+    }
+    
     func getRickAndMortyData() {
         guard let urlObj = URL(string: model?.nextPageUrl ?? "") else
         { return }

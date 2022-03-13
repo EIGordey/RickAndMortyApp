@@ -35,36 +35,12 @@ class CollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CollectionViewCell else {
             return UICollectionViewCell()
         }
-        if let count = controller?.getNumberOfRows(), count>1{
-            let lastElement = count - 1
-            if indexPath.row == lastElement {
-                controller?.getRickAndMortyData()
-            }
-        }
-        
-        guard let hero = controller?.createHero(for: indexPath.row) else {
-            return UICollectionViewCell()
-        }
-        
-        guard let count = controller?.getDataFromDB(hero: hero).count else {
-            return UICollectionViewCell()
-        }
-        
-        if count == 1  {
-            cell.likeButton.isSelected = true
-        } else {
-            cell.likeButton.isSelected = false
-        }
-        
+
+        controller?.getNextPage(for: indexPath.row)
+        controller?.getLikeButtonStatus(for: indexPath.row, sender: cell.likeButton)
         cell.hero = controller?.getHeroes(for: indexPath.row)
         cell.actionClosure = {
-            if cell.likeButton.isSelected == true {
-                cell.likeButton.isSelected = false
-                self.controller?.deleteObject(for: hero.id)
-            } else {
-                cell.likeButton.isSelected = true
-                self.controller?.addDataToRealm(hero: hero)
-            }
+            self.controller?.likeButtonAction(for: indexPath.row, sender: cell.likeButton)
         }
         return cell
     }
