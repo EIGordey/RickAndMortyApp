@@ -49,7 +49,7 @@ class CollectionViewController: UICollectionViewController {
         targetContentOffset.pointee = scrollView.contentOffset
         var indexes = self.collectionView.indexPathsForVisibleItems
         indexes.sort()
-        var index = indexes.first!
+        let index = indexes.first!
         self.collectionView.scrollToItem(at: index, at: .left, animated: true )
     }
     
