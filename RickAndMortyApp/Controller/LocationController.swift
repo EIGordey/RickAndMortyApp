@@ -29,6 +29,15 @@ class LocationController {
         getRickAndMortyData()
     }
     
+    func getNextPage(for number: Int) {
+        if let count = getNumberOfRows(), count>1{
+            let lastElement = count - 1
+            if number == lastElement {
+                getRickAndMortyData()
+            }
+        }
+    }
+    
     func getRickAndMortyData() {
         
         guard let urlObj = URL(string: model?.nextPageUrl ?? "") else

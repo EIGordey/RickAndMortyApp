@@ -28,12 +28,7 @@ class LocationTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let count = controller?.getNumberOfRows(), count>1{
-            let lastElement = count - 1
-            if indexPath.row == lastElement {
-                controller?.getRickAndMortyData()
-            }
-        }
+        controller?.getNextPage(for: indexPath.row)
         let cell = UITableViewCell()
         cell.textLabel?.text = controller?.getLocations(for: indexPath.row)?.name
         return cell

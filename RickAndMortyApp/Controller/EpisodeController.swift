@@ -28,6 +28,14 @@ class EpisodeController {
         model?.aryDownloadedData = []
         getRickAndMortyData()
     }
+    func getNextPage(for number: Int) {
+        if let count = getNumberOfRows(), count>1{
+            let lastElement = count - 1
+            if number == lastElement {
+                getRickAndMortyData()
+            }
+        }
+    }
     
     func getRickAndMortyData() {
         
