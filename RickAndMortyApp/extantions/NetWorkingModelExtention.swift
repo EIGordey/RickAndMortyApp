@@ -45,7 +45,7 @@ extension Hero: Displayable {
 extension Location: Displayable {
     
     var titleLabelText: String {
-        name ?? ""
+        name
     }
     
     var subtitleLabelText: String {
