@@ -25,7 +25,7 @@ class CollectionViewController: UICollectionViewController {
     }
     
     func config() {
-        self.navigationItem.title = "Characters"
+        self.navigationItem.title = "Heroes"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
