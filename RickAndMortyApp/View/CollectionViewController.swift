@@ -47,14 +47,6 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        targetContentOffset.pointee = scrollView.contentOffset
-        var indexes = self.collectionView.indexPathsForVisibleItems
-        indexes.sort()
-        let index = indexes.first!
-        self.collectionView.scrollToItem(at: index, at: .left, animated: true )
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         controller?.getSelecteditem(for: indexPath.row)
         let view = DetailViewController()
