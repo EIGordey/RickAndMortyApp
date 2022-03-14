@@ -86,12 +86,14 @@ class DetailTableViewCell: UITableViewCell {
         descriptionView.addSubview(firstItemValue)
         descriptionView.addSubview(secondItemValue)
         descriptionView.addSubview(thirdItemValue)
-        containerView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, leading: containerView.leadingAnchor)
-        titleLabel.anchor(top: mainView.topAnchor, bottom: mainView.bottomAnchor, leading: mainView.leadingAnchor,paddingLeading: 20, trailing: mainView.trailingAnchor)
+        containerView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor)
+        mainView.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, trailing: containerView.trailingAnchor)
+        descriptionView.anchor(top: mainView.bottomAnchor, bottom: containerView.bottomAnchor, leading: containerView.leadingAnchor, trailing: containerView.trailingAnchor)
+        titleLabel.anchor(top: mainView.topAnchor, bottom: mainView.bottomAnchor, leading: mainView.leadingAnchor, paddingLeading: 20, trailing: mainView.trailingAnchor)
         subtitleLabel.anchor(top: descriptionView.topAnchor, leading: descriptionView.leadingAnchor, paddingLeading: 20)
         firstItemValue.anchor(top: subtitleLabel.bottomAnchor, leading: descriptionView.leadingAnchor, paddingLeading: 20)
         secondItemValue.anchor(top: firstItemValue.bottomAnchor, leading: descriptionView.leadingAnchor, paddingLeading: 20)
-        thirdItemValue.anchor(top: secondItemValue.bottomAnchor,bottom: descriptionView.bottomAnchor, leading: descriptionView.leadingAnchor, paddingLeading: 20)
+        thirdItemValue.anchor(top: secondItemValue.bottomAnchor, bottom: descriptionView.bottomAnchor, leading: descriptionView.leadingAnchor, paddingLeading: 20)
 
     }
     

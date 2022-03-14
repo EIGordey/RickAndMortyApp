@@ -15,6 +15,7 @@
 		BC17D35A27DA652B00578FFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC17D35927DA652B00578FFD /* RealmSwift */; };
 		BC17D35C27DA683900578FFD /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17D35B27DA683900578FFD /* DBModel.swift */; };
 		BC67CC0C27D937C9005012B6 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC67CC0B27D937C9005012B6 /* DetailTableViewCell.swift */; };
+		BC8A3FCE27DF94A500CC5BC2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BC8A3FCD27DF94A500CC5BC2 /* Kingfisher */; };
 		BC9BE50927DBB117005FE3AA /* FavouriteHeroesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BE50827DBB117005FE3AA /* FavouriteHeroesController.swift */; };
 		BC9BE50B27DBB160005FE3AA /* FavouriteHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BE50A27DBB160005FE3AA /* FavouriteHeroesTableViewController.swift */; };
 		BC9BE50D27DBB193005FE3AA /* FavouriteHeroesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BE50C27DBB193005FE3AA /* FavouriteHeroesModel.swift */; };
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC8A3FCE27DF94A500CC5BC2 /* Kingfisher in Frameworks */,
 				BC17D35A27DA652B00578FFD /* RealmSwift in Frameworks */,
 				BC17D35827DA652B00578FFD /* Realm in Frameworks */,
 				BCA785FA27D78F0A003B59BE /* Alamofire in Frameworks */,
@@ -141,17 +143,17 @@
 		BCBB49A827D5FB3900D3DBF2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BCD6BDDB27D61DD0007DBE94 /* TabBarModel.swift */,
 				BCD6BDD327D60ABC007DBE94 /* CollectionViewModel.swift */,
 				BCA785F027D7703A003B59BE /* EpisodeTableViewModel.swift */,
 				BCA785F427D779F8003B59BE /* LocationTableViewModel.swift */,
-				BCBB499427D5F9FB00D3DBF2 /* AppDelegate.swift */,
-				BCBB499627D5F9FB00D3DBF2 /* SceneDelegate.swift */,
-				BCD6BDD127D609D2007DBE94 /* NetworkingModel.swift */,
-				BCD6BDDB27D61DD0007DBE94 /* TabBarModel.swift */,
+				BC9BE50C27DBB193005FE3AA /* FavouriteHeroesModel.swift */,
 				BCA785E327D75D06003B59BE /* DetailModel.swift */,
 				BC17D35427DA638A00578FFD /* DBManager.swift */,
 				BC17D35B27DA683900578FFD /* DBModel.swift */,
-				BC9BE50C27DBB193005FE3AA /* FavouriteHeroesModel.swift */,
+				BCD6BDD127D609D2007DBE94 /* NetworkingModel.swift */,
+				BCBB499427D5F9FB00D3DBF2 /* AppDelegate.swift */,
+				BCBB499627D5F9FB00D3DBF2 /* SceneDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,12 +165,12 @@
 				BCD6BDE127D61EB3007DBE94 /* TabBarView.swift */,
 				BCD6BDD527D60B8D007DBE94 /* CollectionViewController.swift */,
 				BCD6BDD927D60FAD007DBE94 /* CollectionViewCell.swift */,
-				BC67CC0B27D937C9005012B6 /* DetailTableViewCell.swift */,
-				BC04050F27DD17660064A177 /* FavouriteHeroTableViewCell.swift */,
-				BCA785E127D75CD0003B59BE /* DetailViewController.swift */,
 				BCA785EE27D77018003B59BE /* EpisodeTableViewController.swift */,
 				BCA785F227D77996003B59BE /* LocationTableViewController.swift */,
+				BCA785E127D75CD0003B59BE /* DetailViewController.swift */,
+				BC67CC0B27D937C9005012B6 /* DetailTableViewCell.swift */,
 				BC9BE50A27DBB160005FE3AA /* FavouriteHeroesTableViewController.swift */,
+				BC04050F27DD17660064A177 /* FavouriteHeroTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,12 +178,12 @@
 		BCBB49AA27D5FB5E00D3DBF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BCD6BDD727D60BF4007DBE94 /* CollectionController.swift */,
-				BCA785DF27D75CAB003B59BE /* DetailController.swift */,
 				BCD6BDDF27D61E4C007DBE94 /* TabBarController.swift */,
+				BCD6BDD727D60BF4007DBE94 /* CollectionController.swift */,
 				BCA785EC27D76FF5003B59BE /* EpisodeController.swift */,
 				BCA785F627D77A96003B59BE /* LocationController.swift */,
 				BC9BE50827DBB117005FE3AA /* FavouriteHeroesController.swift */,
+				BCA785DF27D75CAB003B59BE /* DetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,9 +200,9 @@
 			isa = PBXGroup;
 			children = (
 				BCBB49AF27D5FDFF00D3DBF2 /* UiviewExtentions.swift */,
-				BCA785EA27D76A45003B59BE /* NetWorkingModelExtention.swift */,
 				BC09CFC427DCDEB700A09A8E /* CollectionViewControllerExtentions.swift */,
 				BC09CFC627DCE0FC00A09A8E /* DetailViewControllerExtentions.swift */,
+				BCA785EA27D76A45003B59BE /* NetWorkingModelExtention.swift */,
 			);
 			path = extantions;
 			sourceTree = "<group>";
@@ -225,6 +227,7 @@
 				BCA785F927D78F0A003B59BE /* Alamofire */,
 				BC17D35727DA652B00578FFD /* Realm */,
 				BC17D35927DA652B00578FFD /* RealmSwift */,
+				BC8A3FCD27DF94A500CC5BC2 /* Kingfisher */,
 			);
 			productName = RickAndMortyApp;
 			productReference = BCBB499127D5F9FB00D3DBF2 /* RickAndMortyApp.app */;
@@ -257,6 +260,7 @@
 			packageReferences = (
 				BCA785F827D78F0A003B59BE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BC8A3FCC27DF94A500CC5BC2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BCBB499227D5F9FB00D3DBF2 /* Products */;
 			projectDirPath = "";
@@ -539,6 +543,14 @@
 				kind = branch;
 			};
 		};
+		BC8A3FCC27DF94A500CC5BC2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		BCA785F827D78F0A003B59BE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -559,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		BC8A3FCD27DF94A500CC5BC2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC8A3FCC27DF94A500CC5BC2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		BCA785F927D78F0A003B59BE /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

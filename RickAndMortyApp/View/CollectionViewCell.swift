@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionViewCell: UICollectionViewCell {
     
     var actionClosure: (()->())?
     var hero : Hero? {
         didSet {
-            showCaseImageView.something(urlString: hero?.image ?? "")
+            guard let url = URL(string: hero?.image ?? "") else {return}
+            showCaseImageView.kf.setImage(with: url)
             nameLabel.text = hero?.name
-           
         }
     }
     
@@ -52,13 +53,13 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     func addViews() {
-        addSubview(showCaseImageView)
-        addSubview(nameLabel)
-        addSubview(likeButton)
+        contentView.addSubview(showCaseImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(likeButton)
         likeButton.addTarget(self, action: #selector(clickOnLikeButton), for: .touchUpInside)
-        showCaseImageView.anchor(top: contentView.layoutMarginsGuide.topAnchor , leading: contentView.layoutMarginsGuide.leadingAnchor, trailing: contentView.layoutMarginsGuide.trailingAnchor)
-        nameLabel.anchor(top: showCaseImageView.bottomAnchor,paddingTop: 5, bottom: contentView.layoutMarginsGuide.bottomAnchor, paddingBottom: 5,  leading: showCaseImageView.leadingAnchor, paddingLeading: 5,trailing: layoutMarginsGuide.trailingAnchor)
-        likeButton.anchor(top: nameLabel.topAnchor, trailing: layoutMarginsGuide.trailingAnchor, paddingTrailing: 5)
+        showCaseImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, paddingBottom: -20, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor)
+        nameLabel.anchor(top: showCaseImageView.bottomAnchor,paddingTop: 5, bottom: contentView.bottomAnchor,  leading: showCaseImageView.leadingAnchor, paddingLeading: 5,trailing: contentView.trailingAnchor, paddingTrailing: -30)
+        likeButton.anchor(top: showCaseImageView.bottomAnchor, trailing: contentView.trailingAnchor, paddingTrailing: -10)
     }
     
     @objc func clickOnLikeButton(sender : UIButton) {

@@ -56,10 +56,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         listItemsLabel.textAlignment = .left
         listItemsLabel.numberOfLines = 1
         
-        exitButton.addTarget(self, action: #selector(self.exit), for: .touchUpInside)
-        exitButton.setImage(UIImage(systemName: "clean"), for: .normal)
-        
-        
         view.addSubview(titleLabelText)
         view.addSubview(subtitleLabelText)
         view.addSubview(firstItemLabel)
@@ -70,11 +66,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         view.addSubview(thirdItemValue)
         view.addSubview(listItemsLabel)
         view.addSubview(listItemsTableView)
-        view.addSubview(exitButton)
         view.backgroundColor = .systemBackground
         titleLabelText.anchor(top: view.layoutMarginsGuide.topAnchor, paddingTop: 20, leading: view.leadingAnchor, paddingLeading: 20)
-        
-        exitButton.anchor(top: view.layoutMarginsGuide.topAnchor, paddingTop: 20, trailing: view.layoutMarginsGuide.trailingAnchor)
         
         subtitleLabelText.anchor(top: titleLabelText.bottomAnchor,paddingTop: 20, leading: view.leadingAnchor, paddingLeading: 20)
         
@@ -97,21 +90,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         self.listItemsTableView.dataSource = self
         self.listItemsTableView.estimatedRowHeight = 100
         self.listItemsTableView.rowHeight = UITableView.automaticDimension
-        
-    }
-    
-    @objc func exit(sender : UIButton) {
-        UIView.animate(withDuration: 0.6,
-                       animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-        },
-                       completion: { _ in
-            UIView.animate(withDuration: 0.6) {
-                sender.transform = CGAffineTransform.identity
-            }
-        })
-        dismiss(animated: true, completion: nil)
-        
         
     }
     
@@ -143,7 +121,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.data = controller?.getEpisode(for: indexPath.row)
         return cell ?? UITableViewCell()
     }
-   
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = self.listItemsTableView.cellForRow(at: indexPath) as? DetailTableViewCell {
             cell.hideDetailView()
