@@ -14,7 +14,8 @@ class CollectionViewCell: UICollectionViewCell {
     var hero : Hero? {
         didSet {
             guard let url = URL(string: hero?.image ?? "") else {return}
-            showCaseImageView.kf.setImage(with: url)
+            showCaseImageView.kf.indicatorType = .activity
+            showCaseImageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
             nameLabel.text = hero?.name
         }
     }
