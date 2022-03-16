@@ -25,8 +25,7 @@ class TabBarController {
         let collectionModel = CollectionViewModel()
         let collectionNavigation = UINavigationController(rootViewController: collectionView)
         let collection = CollectionController(view: collectionView, model: collectionModel)
-        let collectionTitle = UITabBarItem(title: "Heroes", image: UIImage(named: "characters"), selectedImage: UIImage(named: ""))
-        collection.view?.tabBarItem.selectedImage = UIImage(named: "characters_active")
+        let collectionTitle = UITabBarItem(title: "Heroes", image: UIImage(named: "characters"), selectedImage: UIImage(named: "characters_active"))
         collection.view?.tabBarItem = collectionTitle
         collectionNavigation.tabBarItem = collectionTitle
         
@@ -34,8 +33,7 @@ class TabBarController {
         let episodeNavigation = UINavigationController(rootViewController: episodeView)
         let episodeModel = EpisodeTableViewModel()
         let episodeTableView = EpisodeController(view: episodeView, model: episodeModel)
-        let episodeTitle = UITabBarItem(title: "Episodes", image: UIImage(named: "episodes"), selectedImage: nil)
-        episodeTableView.view?.tabBarItem.selectedImage = UIImage(named: "episodes_active")
+        let episodeTitle = UITabBarItem(title: "Episodes", image: UIImage(named: "episodes"), selectedImage: UIImage(named: "episodes_active"))
         episodeTableView.view?.tabBarItem = episodeTitle
         episodeNavigation.tabBarItem = episodeTitle
         
@@ -43,8 +41,7 @@ class TabBarController {
         let locationNavigation = UINavigationController(rootViewController: locationView)
         let locationModel = LocationTableViewModel()
         let locationTableView = LocationController(view: locationView, model: locationModel)
-        let locationTitle = UITabBarItem(title: "Locations", image: UIImage(named: "locations"), selectedImage: nil)
-        locationTableView.view?.tabBarItem.selectedImage = UIImage(named: "locations_active")
+        let locationTitle = UITabBarItem(title: "Locations", image: UIImage(named: "locations"), selectedImage: UIImage(named: "locations_active"))
         locationTableView.view?.tabBarItem = locationTitle
         locationNavigation.tabBarItem = locationTitle
         

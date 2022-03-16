@@ -15,6 +15,8 @@
 		BC17D35A27DA652B00578FFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC17D35927DA652B00578FFD /* RealmSwift */; };
 		BC17D35C27DA683900578FFD /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC17D35B27DA683900578FFD /* DBModel.swift */; };
 		BC67CC0C27D937C9005012B6 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC67CC0B27D937C9005012B6 /* DetailTableViewCell.swift */; };
+		BC80E18127E23193003EC197 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BC80E18027E23193003EC197 /* Realm */; };
+		BC80E18327E23193003EC197 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BC80E18227E23193003EC197 /* RealmSwift */; };
 		BC8A3FCE27DF94A500CC5BC2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BC8A3FCD27DF94A500CC5BC2 /* Kingfisher */; };
 		BC9BE50927DBB117005FE3AA /* FavouriteHeroesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BE50827DBB117005FE3AA /* FavouriteHeroesController.swift */; };
 		BC9BE50B27DBB160005FE3AA /* FavouriteHeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9BE50A27DBB160005FE3AA /* FavouriteHeroesTableViewController.swift */; };
@@ -91,10 +93,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC80E18327E23193003EC197 /* RealmSwift in Frameworks */,
 				BC8A3FCE27DF94A500CC5BC2 /* Kingfisher in Frameworks */,
 				BC17D35A27DA652B00578FFD /* RealmSwift in Frameworks */,
 				BC17D35827DA652B00578FFD /* Realm in Frameworks */,
 				BCA785FA27D78F0A003B59BE /* Alamofire in Frameworks */,
+				BC80E18127E23193003EC197 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +232,8 @@
 				BC17D35727DA652B00578FFD /* Realm */,
 				BC17D35927DA652B00578FFD /* RealmSwift */,
 				BC8A3FCD27DF94A500CC5BC2 /* Kingfisher */,
+				BC80E18027E23193003EC197 /* Realm */,
+				BC80E18227E23193003EC197 /* RealmSwift */,
 			);
 			productName = RickAndMortyApp;
 			productReference = BCBB499127D5F9FB00D3DBF2 /* RickAndMortyApp.app */;
@@ -261,6 +267,7 @@
 				BCA785F827D78F0A003B59BE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */,
 				BC8A3FCC27DF94A500CC5BC2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BC80E17F27E23193003EC197 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BCBB499227D5F9FB00D3DBF2 /* Products */;
 			projectDirPath = "";
@@ -543,6 +550,14 @@
 				kind = branch;
 			};
 		};
+		BC80E17F27E23193003EC197 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		BC8A3FCC27DF94A500CC5BC2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -568,6 +583,16 @@
 			productName = Realm;
 		};
 		BC17D35927DA652B00578FFD /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		BC80E18027E23193003EC197 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BC80E18227E23193003EC197 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BC17D35627DA652B00578FFD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;

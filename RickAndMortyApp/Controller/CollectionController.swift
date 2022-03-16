@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
 
 class CollectionController {
     
@@ -22,9 +23,23 @@ class CollectionController {
         return model?.aryDownloadedData?[number]
     }
     
+    func getSelecteditem(for number: Int) {
+        model?.selectedItem = model?.aryDownloadedData?[number]
+    }
+    
     func getIntitalRickAndMortyData(){
         model?.aryDownloadedData = []
         getRickAndMortyData()
+    }
+    
+    func getFirstpage() {
+        AF.request("https://rickandmortyapi.com/api/character")
+            .validate()
+            .responseDecodable(of: PagedCharacters.self) { response in
+                guard let heroes = response.value else { return }
+                self.model?.aryDownloadedData = heroes.results
+                self.view?.collectionView.reloadData()
+            }
     }
     
     func getNextPage(for number: Int) {
@@ -36,27 +51,6 @@ class CollectionController {
         }
     }
     
-    func getLikeButtonStatus(for number: Int, sender: UIButton) {
-        let hero = createHero(for: number)
-        let count = getDataFromDB(hero: hero).count
-        
-        if count == 1 {
-            sender.isSelected = true
-        } else {
-            sender.isSelected = false
-        }
-    }
-    func likeButtonAction(for number: Int, sender: UIButton) {
-        let hero = createHero(for: number)
-        if sender.isSelected == true {
-            sender.isSelected = false
-            deleteObject(for: hero.id)
-        } else {
-            sender.isSelected = true
-            addDataToRealm(hero: hero)
-        }
-    }
-    
     func getRickAndMortyData() {
         guard let urlObj = URL(string: model?.nextPageUrl ?? "") else
         { return }
@@ -65,7 +59,7 @@ class CollectionController {
             do {
                 let downloadedRickAndMorty = try JSONDecoder().decode(PagedCharacters.self, from: data)
                 self?.model?.aryDownloadedData?.append(contentsOf: downloadedRickAndMorty.results)
-                self?.model?.nextPageUrl = downloadedRickAndMorty.info.next
+                self?.model?.nextPageUrl = downloadedRickAndMorty.info?.next ?? ""
                 
                 DispatchQueue.main.async {
                     self?.view?.collectionView.reloadData()
@@ -97,12 +91,51 @@ class CollectionController {
         }
     }
     
+    func getLikeButtonStatus(for number: Int, sender: UIButton) {
+        let hero = createHero(for: number)
+        let count = getDataFromDB(hero: hero).count
+        
+        if count == 1 {
+            sender.isSelected = true
+        } else {
+            sender.isSelected = false
+        }
+    }
+    
+    func likeButtonAction(for number: Int, sender: UIButton) {
+        let hero = createHero(for: number)
+        if sender.isSelected == true {
+            sender.isSelected = false
+            deleteObject(for: hero.id)
+        } else {
+            sender.isSelected = true
+            addDataToRealm(hero: hero)
+        }
+    }
+    
     func deleteObject(for heroId: Int) {
         DBManager.sharedInstance.deleteFromDb(heroID: heroId)
     }
-    func getSelecteditem(for number: Int) {
-        model?.selectedItem = model?.aryDownloadedData?[number]
+    
+    func searchHero(for name: String) {
+        let url = "https://rickandmortyapi.com/api/character"
+        let parameters: [String: String] = ["name": name]
+        AF.request(url, parameters: parameters).validate()
+            .responseDecodable(of: PagedCharacters.self) { response in
+                guard let heroes = response.value else { return }
+                self.model?.aryDownloadedData = heroes.results
+                self.view?.collectionView.reloadData()
+            }
     }
+    
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let heroName = searchBar.text else { return }
+        searchHero(for: heroName)
+    }
+    
+    
     init(view: CollectionViewController, model: CollectionViewModel) {
         self.view = view
         self.model = model

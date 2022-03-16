@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+import Alamofire
 
 private let reuseIdentifier = "Cell"
 
-class CollectionViewController: UICollectionViewController {
-    
+class CollectionViewController: UICollectionViewController, UISearchControllerDelegate, UISearchBarDelegate {
+    var searchController : UISearchController?
     var controller: CollectionController?
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let itemsPerRow: CGFloat = 2
@@ -24,9 +24,27 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let heroName = searchBar.text else { return }
+        controller?.searchHero(for: heroName)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+            controller?.getFirstpage()
+    }
+    
     func config() {
         self.navigationItem.title = "Heroes"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.searchController = UISearchController(searchResultsController:  nil)
+        self.searchController?.delegate = self
+        self.searchController?.searchBar.delegate = self
+        self.definesPresentationContext = true
+        self.searchController?.hidesNavigationBarDuringPresentation = false
+        searchController?.searchBar.becomeFirstResponder()
+        self.navigationItem.titleView = searchController?.searchBar
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

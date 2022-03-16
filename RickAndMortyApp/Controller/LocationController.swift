@@ -50,7 +50,7 @@ class LocationController {
             do {
                 let downloadedRickAndMorty = try JSONDecoder().decode(PagedLocations.self, from: data)
                 self?.model?.aryDownloadedData?.append(contentsOf: downloadedRickAndMorty.results)
-                self?.model?.nextPageUrl = downloadedRickAndMorty.info.next
+                self?.model?.nextPageUrl = downloadedRickAndMorty.info.next ?? ""
                 
                 DispatchQueue.main.async {
                     self?.view?.tableView.reloadData()

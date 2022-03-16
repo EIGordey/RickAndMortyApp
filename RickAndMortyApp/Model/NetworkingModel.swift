@@ -9,7 +9,7 @@ import Foundation
 
 struct PagedCharacters: Codable {
     
-    let info: Info
+    let info: Info?
     let results: [Hero]
 
 }
@@ -32,7 +32,7 @@ struct Info: Codable {
     
     let count: Int
     let pages: Int
-    let next: String
+    let next: String?
     let prev: String?
 }
 
