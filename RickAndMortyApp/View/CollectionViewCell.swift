@@ -59,7 +59,7 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.addSubview(likeButton)
         likeButton.addTarget(self, action: #selector(clickOnLikeButton), for: .touchUpInside)
         showCaseImageView.anchor(top: contentView.topAnchor, bottom: contentView.bottomAnchor, paddingBottom: -20, leading: contentView.leadingAnchor, trailing: contentView.trailingAnchor)
-        nameLabel.anchor(top: showCaseImageView.bottomAnchor,paddingTop: 5, bottom: contentView.bottomAnchor,  leading: showCaseImageView.leadingAnchor, paddingLeading: 5,trailing: contentView.trailingAnchor, paddingTrailing: -30)
+        nameLabel.anchor(top: showCaseImageView.bottomAnchor,paddingTop: 5, bottom: contentView.bottomAnchor, paddingBottom: 5,  leading: showCaseImageView.leadingAnchor, paddingLeading: 5,trailing: contentView.trailingAnchor, paddingTrailing: -30)
         likeButton.anchor(top: showCaseImageView.bottomAnchor, trailing: contentView.trailingAnchor, paddingTrailing: -10)
     }
     
