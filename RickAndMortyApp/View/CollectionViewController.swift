@@ -10,7 +10,9 @@ import Alamofire
 
 private let reuseIdentifier = "Cell"
 
-class CollectionViewController: UICollectionViewController, UISearchControllerDelegate, UISearchBarDelegate {
+class CollectionViewController: UICollectionViewController, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+    
+    
     var searchController : UISearchController?
     var controller: CollectionController?
     let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -32,7 +34,13 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
-            controller?.getFirstpage()
+        controller?.getFirstpage()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text?.count ?? 0 > 1 {
+            controller?.searchHero(for: searchController.searchBar.text ?? "")
+        }
     }
     
     func config() {
@@ -43,6 +51,7 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         self.searchController?.searchBar.delegate = self
         self.definesPresentationContext = true
         self.searchController?.hidesNavigationBarDuringPresentation = false
+        self.searchController?.searchResultsUpdater = self
         searchController?.searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchController?.searchBar
     }
