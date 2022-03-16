@@ -54,6 +54,8 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         self.searchController?.searchResultsUpdater = self
         searchController?.searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchController?.searchBar
+        self.searchController?.searchBar.placeholder = "Enter Hero's name"
+        self.searchController?.searchBar.enablesReturnKeyAutomatically = true
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
