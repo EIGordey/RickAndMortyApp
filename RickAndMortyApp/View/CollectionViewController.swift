@@ -26,11 +26,6 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let heroName = searchBar.text else { return }
-        controller?.searchHero(for: heroName)
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
@@ -38,9 +33,7 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        if searchController.searchBar.text?.count ?? 0 > 1 {
-            controller?.searchHero(for: searchController.searchBar.text ?? "")
-        }
+        controller?.searchUpdating()
     }
     
     func config() {
@@ -50,17 +43,20 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         self.searchController?.delegate = self
         self.searchController?.searchBar.delegate = self
         self.definesPresentationContext = true
-        self.searchController?.hidesNavigationBarDuringPresentation = false
         self.searchController?.searchResultsUpdater = self
-        searchController?.searchBar.becomeFirstResponder()
+        self.searchController?.searchBar.becomeFirstResponder()
         self.searchController?.searchBar.placeholder = "Enter Hero's name"
         self.searchController?.searchBar.enablesReturnKeyAutomatically = true
         navigationItem.searchController = searchController
-        searchController?.obscuresBackgroundDuringPresentation = false
-        searchController?.hidesNavigationBarDuringPresentation = true
-        searchController?.searchBar.sizeToFit()
+        self.searchController?.obscuresBackgroundDuringPresentation = false
+        self.searchController?.hidesNavigationBarDuringPresentation = true
+        self.searchController?.searchBar.scopeButtonTitles = ["Name", "Status", "Species", "Gender"]
+        
     }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        self.searchController?.searchBar.placeholder = "Enter Hero's \(searchController?.searchBar.scopeButtonTitles?[selectedScope] ?? "")"
+    }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return controller?.getNumberOfRows() ?? 0
     }
@@ -89,5 +85,7 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         view.modalTransitionStyle = .flipHorizontal
         present(view, animated: true, completion: nil)
     }
+    
+    
 }
 

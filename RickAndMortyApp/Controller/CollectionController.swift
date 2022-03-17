@@ -33,11 +33,13 @@ class CollectionController {
     }
     
     func getFirstpage() {
-        AF.request("https://rickandmortyapi.com/api/character")
+        let url = "https://rickandmortyapi.com/api/character"
+        AF.request(url)
             .validate()
             .responseDecodable(of: PagedCharacters.self) { response in
                 guard let heroes = response.value else { return }
                 self.model?.aryDownloadedData = heroes.results
+                self.model?.nextPageUrl = heroes.info?.next ?? ""
                 self.view?.collectionView.reloadData()
             }
     }
@@ -117,22 +119,25 @@ class CollectionController {
         DBManager.sharedInstance.deleteFromDb(heroID: heroId)
     }
     
-    func searchHero(for name: String) {
+    func searchHero(for name: String, filter: String) {
         let url = "https://rickandmortyapi.com/api/character"
-        let parameters: [String: String] = ["name": name]
-        AF.request(url, parameters: parameters).validate()
+        let parameters: [String: String] = [filter: name]
+        AF.request(url, parameters: parameters)
+            .validate()
             .responseDecodable(of: PagedCharacters.self) { response in
                 guard let heroes = response.value else { return }
                 self.model?.aryDownloadedData = heroes.results
+                self.model?.nextPageUrl = heroes.info?.next ?? ""
                 self.view?.collectionView.reloadData()
             }
     }
     
     
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let heroName = searchBar.text else { return }
-        searchHero(for: heroName)
+    func searchUpdating() {
+        if view?.searchController?.searchBar.text?.count ?? 0 > 1 {
+            searchHero(for: view?.searchController?.searchBar.text ?? "", filter: view?.searchController?.searchBar.scopeButtonTitles?[view?.searchController?.searchBar.selectedScopeButtonIndex ?? 0].lowercased() ?? "")
+        }
     }
     
     
