@@ -53,6 +53,7 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         self.searchController?.obscuresBackgroundDuringPresentation = false
         self.searchController?.hidesNavigationBarDuringPresentation = true
         self.searchController?.searchBar.scopeButtonTitles = ["Name", "Status", "Species", "Gender"]
+        self.collectionView.keyboardDismissMode = .onDrag
         
     }
     
