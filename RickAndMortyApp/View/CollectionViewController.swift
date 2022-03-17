@@ -22,10 +22,14 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         super.viewDidLoad()
         
         controller?.getIntitalRickAndMortyData()
-        config()
+        self.navigationItem.title = "Heroes"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.collectionView!.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        config()
+    }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         searchBar.resignFirstResponder()
@@ -37,8 +41,6 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
     }
     
     func config() {
-        self.navigationItem.title = "Heroes"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.searchController = UISearchController(searchResultsController:  nil)
         self.searchController?.delegate = self
         self.searchController?.searchBar.delegate = self
