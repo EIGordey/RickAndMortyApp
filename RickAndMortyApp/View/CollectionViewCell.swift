@@ -40,7 +40,7 @@ class CollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.setImage(UIImage(systemName: "heart.fill"), for: .selected)
-        button.addTarget(self, action: #selector(clickOnLikeButton), for: .valueChanged)
+        button.addTarget(CollectionViewCell.self, action: #selector(clickOnLikeButton), for: .valueChanged)
         return button
     }()
     

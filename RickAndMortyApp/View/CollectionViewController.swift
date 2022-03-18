@@ -83,7 +83,7 @@ class CollectionViewController: UICollectionViewController, UISearchControllerDe
         let view = DetailViewController()
         let model = DetailModel()
         model.data = controller?.model?.selectedItem
-        let controller = DetailController(view: view, model: model)
+        _ = DetailController(view: view, model: model)
         view.modalPresentationStyle = .automatic
         view.modalTransitionStyle = .flipHorizontal
         present(view, animated: true, completion: nil)

@@ -40,7 +40,7 @@ class EpisodeTableViewController: UITableViewController {
         let view = DetailViewController()
         let model = DetailModel()
         model.data = controller?.model?.selectedItem
-        let controller = DetailController(view: view, model: model)
+        _ = DetailController(view: view, model: model)
         view.modalPresentationStyle = .automatic
         present(view, animated: true, completion: nil)
     }
