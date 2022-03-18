@@ -132,7 +132,7 @@
 		BCBB499327D5F9FB00D3DBF2 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
-				BCBB49AC27D5FD8900D3DBF2 /* extantions */,
+				BCBB49AC27D5FD8900D3DBF2 /* Extantions */,
 				BCA785E927D7683D003B59BE /* Protocols */,
 				BCBB49AA27D5FB5E00D3DBF2 /* Controller */,
 				BCBB49A927D5FB4200D3DBF2 /* View */,
@@ -200,7 +200,7 @@
 			path = Initial;
 			sourceTree = "<group>";
 		};
-		BCBB49AC27D5FD8900D3DBF2 /* extantions */ = {
+		BCBB49AC27D5FD8900D3DBF2 /* Extantions */ = {
 			isa = PBXGroup;
 			children = (
 				BCBB49AF27D5FDFF00D3DBF2 /* UIViewExtentions.swift */,
@@ -208,7 +208,7 @@
 				BC09CFC627DCE0FC00A09A8E /* DetailViewControllerExtentions.swift */,
 				BCA785EA27D76A45003B59BE /* NetWorkingModelExtention.swift */,
 			);
-			path = extantions;
+			path = Extantions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
