@@ -38,7 +38,7 @@
 		BCBB499927D5F9FB00D3DBF2 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB499827D5F9FB00D3DBF2 /* InitialViewController.swift */; };
 		BCBB499E27D5F9FC00D3DBF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCBB499D27D5F9FC00D3DBF2 /* Assets.xcassets */; };
 		BCBB49A127D5F9FC00D3DBF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCBB499F27D5F9FC00D3DBF2 /* LaunchScreen.storyboard */; };
-		BCBB49B027D5FDFF00D3DBF2 /* UiviewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB49AF27D5FDFF00D3DBF2 /* UiviewExtentions.swift */; };
+		BCBB49B027D5FDFF00D3DBF2 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBB49AF27D5FDFF00D3DBF2 /* UIViewExtentions.swift */; };
 		BCD6BDD227D609D2007DBE94 /* NetworkingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BDD127D609D2007DBE94 /* NetworkingModel.swift */; };
 		BCD6BDD427D60ABC007DBE94 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BDD327D60ABC007DBE94 /* CollectionViewModel.swift */; };
 		BCD6BDD627D60B8D007DBE94 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BDD527D60B8D007DBE94 /* CollectionViewController.swift */; };
@@ -77,7 +77,7 @@
 		BCBB499D27D5F9FC00D3DBF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCBB49A027D5F9FC00D3DBF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCBB49A227D5F9FC00D3DBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BCBB49AF27D5FDFF00D3DBF2 /* UiviewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiviewExtentions.swift; sourceTree = "<group>"; };
+		BCBB49AF27D5FDFF00D3DBF2 /* UIViewExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
 		BCD6BDD127D609D2007DBE94 /* NetworkingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingModel.swift; sourceTree = "<group>"; };
 		BCD6BDD327D60ABC007DBE94 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		BCD6BDD527D60B8D007DBE94 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		BCBB49AC27D5FD8900D3DBF2 /* extantions */ = {
 			isa = PBXGroup;
 			children = (
-				BCBB49AF27D5FDFF00D3DBF2 /* UiviewExtentions.swift */,
+				BCBB49AF27D5FDFF00D3DBF2 /* UIViewExtentions.swift */,
 				BC09CFC427DCDEB700A09A8E /* CollectionViewControllerExtentions.swift */,
 				BC09CFC627DCE0FC00A09A8E /* DetailViewControllerExtentions.swift */,
 				BCA785EA27D76A45003B59BE /* NetWorkingModelExtention.swift */,
@@ -321,7 +321,7 @@
 				BC9BE50D27DBB193005FE3AA /* FavouriteHeroesModel.swift in Sources */,
 				BCD6BDDC27D61DD0007DBE94 /* TabBarModel.swift in Sources */,
 				BC67CC0C27D937C9005012B6 /* DetailTableViewCell.swift in Sources */,
-				BCBB49B027D5FDFF00D3DBF2 /* UiviewExtentions.swift in Sources */,
+				BCBB49B027D5FDFF00D3DBF2 /* UIViewExtentions.swift in Sources */,
 				BC09CFC527DCDEB700A09A8E /* CollectionViewControllerExtentions.swift in Sources */,
 				BCA785EB27D76A45003B59BE /* NetWorkingModelExtention.swift in Sources */,
 				BCA785E227D75CD0003B59BE /* DetailViewController.swift in Sources */,
